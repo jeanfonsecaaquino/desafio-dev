@@ -36,5 +36,5 @@ CREATE TABLE `Transacoes` (
 ALTER TABLE Transacoes
 ADD FOREIGN KEY (tipoTransacao) REFERENCES TipoTransacoes(id);
 
-INSERT INTO DESAFIO_DEV.Transacoes (tipoTransacao,dataOcorrencia,valor,cpf,cartao,hora,donoLoja,nomeLoja)
-	VALUES (1,'2022-01-01',200.0,'11636540783','92198291','10:00','Jean Teste 2','Jean Teste 2');
+-- INSERT INTO DESAFIO_DEV.Transacoes (tipoTransacao,dataOcorrencia,valor,cpf,cartao,hora,donoLoja,nomeLoja)
+-- 	VALUES (1,'2022-01-01',200.0,'11636540783','92198291','10:00','Jean Teste 2','Jean Teste 2');
