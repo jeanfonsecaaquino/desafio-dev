@@ -1,7 +1,6 @@
 FROM node:latest
 WORKDIR /app
-COPY package.json yarn.lock ./
-RUN yarn --frozen-lockfile
+COPY package.json ./
 COPY . .
-EXPOSE 4000
-CMD yarn start
+EXPOSE 8090
+CMD npm run start
