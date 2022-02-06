@@ -6,6 +6,15 @@ networks:
   internal:
     driver: bridge
 services:
+  web:
+    build: ./web
+    networks:
+      - internal
+    ports:
+      - "3000:3000"
+    depends_on:
+      mysql:
+        condition: service_healthy
   app:
     build: ./app
     environment: 
