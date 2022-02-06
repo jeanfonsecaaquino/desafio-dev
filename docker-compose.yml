@@ -6,13 +6,22 @@ networks:
   internal:
     driver: bridge
 services:
-  # app:
-  #   build: ./app
-  #   ports:
-  #     - "8090:8090"
-  #   depends_on:
-  #     mysql:
-  #       condition: service_healthy
+  app:
+    build: ./app
+    environment: 
+      DATABASE: DESAFIO_DEV
+      DATABASE_HOST: mysql
+      DATABASE_PORT: 3306
+      DATABASE_PASSWORD: desafio-dev
+      DATABASE_USER: desafio-dev
+      APP_PORT: 8090
+    networks:
+      - internal
+    ports:
+      - "8090:8090"
+    depends_on:
+      mysql:
+        condition: service_healthy
   mysql:
     image: mysql:8.0
     command: --character-set-server=utf8 --collation-server=utf8_unicode_ci
@@ -30,6 +39,6 @@ services:
     networks:
       - internal
     healthcheck:
-            test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-            timeout: 20s
-            retries: 10
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
