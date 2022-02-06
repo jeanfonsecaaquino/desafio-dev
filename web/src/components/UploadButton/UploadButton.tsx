@@ -1,6 +1,6 @@
 import React from "react";
 import "./UploadButton.css"
-import svg from "../assets/file-upload.svg"
+import svg from "../../assets/file-upload.svg"
 
 function UploadButton(props : any) {
 
@@ -11,7 +11,7 @@ function UploadButton(props : any) {
         handleFileInput && handleFileInput(file)
     }
 
-    const fireEvent= () =>{
+    const fireEvent= () => {
         document.getElementById('fileUpload')!!.click();
     }
 

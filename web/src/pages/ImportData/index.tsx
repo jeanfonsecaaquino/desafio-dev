@@ -1,9 +1,10 @@
-import UploadButton from "../components/UploadButton";
+import { UploadButton } from "../../components"
+import "./index.css"
 
 function ImportData() {
 
   return (
-    <div>
+    <div className="body">
       <UploadButton />
     </div>
   );
