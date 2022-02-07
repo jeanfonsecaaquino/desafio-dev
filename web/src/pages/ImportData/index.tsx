@@ -1,21 +1,33 @@
-import { UploadButton } from "../../components"
+import { UploadButton, Modal } from "../../components"
 import "./index.css"
 import Transacoes from "../../services/Transacoes"
+import React, { useState } from 'react';
 
 function ImportData() {
+	
+	const transacoes = new Transacoes();
+	const [displayModal, setDisplayModal] = useState(false);
 
-  const transacoes = new Transacoes();
+	const handleFileInput = async (file: any) => {
+		const uploadOk = await transacoes.upload(file)
+		if (uploadOk) {
+			setDisplayModal(true)
+		}
+	}
 
-  const handleFileInput = (file :any)=>{
-    transacoes.upload(file)
-  }
-  
+	const closeModal = () =>{
+		setDisplayModal(false)
+	}
 
-  return (
-    <div className="body">
-      <UploadButton handleFileInput={handleFileInput}/>
-    </div>
-  );
+
+	return (
+		<div className="body">
+			<Modal display={displayModal} closeModal={closeModal}>
+				Upload Feito com sucesso!
+			</Modal>
+			<UploadButton handleFileInput={handleFileInput} />
+		</div>
+	);
 }
 
 export default ImportData;
