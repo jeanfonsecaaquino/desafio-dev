@@ -15,4 +15,25 @@ export default class Transacoes {
         return response.status === 200
     }
 
+    async getTransacoes(){
+        const result = await axios.get("http://localhost:8090/transacoes")
+
+        var total = 0;
+        result.data.forEach((data: any) =>{
+            total += data.valor
+        })
+
+        const tableData = {
+            loaded: true,
+            headers: ["CPF", "DATA OCORRENCIA", "DONO LOJA", "HORA", "NOME LOJA", "TIPO TRANSACAO", "VALOR"],
+            body: result.data.map((data: any) =>{
+                return { 
+                    coluna: [data.cpf, data.dataOcorrencia, data.donoLoja, data.hora, data.nomeLoja, data.tipoTransacao, data.valor]
+                }
+            }),
+            footer: ["Total", `R$${total}`],
+        }
+        return tableData;
+    }
+
 }

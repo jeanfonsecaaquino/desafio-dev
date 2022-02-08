@@ -1,0 +1,33 @@
+#transacoes {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#transacoes td, #transacoes th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#transacoes tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#transacoes tbody tr:hover {
+  background-color: #ddd;
+}
+
+#transacoes thead th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #454cad;
+  color: white;
+}
+
+#transacoes tfoot tr {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #a6a6a6;
+    color: white;
+}
